@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXYPNOS 2024</title>
+  <link rel="stylesheet" href="csss.css">
+  <Link rel="script" href="sc">
+</head>
+<body>
+
+  <!-- Heroic GIF Section -->
+  <section id="hero" class="full-screen-section">
+
+    <div class="hero-image">
+
+        <img 
+
+            src="frontlog.gif" 
+
+            alt="Hero GIF" 
+
+            style="width: 100%; height: 100%; object-fit: cover;">
+
+    </div>
+
+</section>
+
+</section>
+
+  <style>
+  /* Full-Screen Section */
+.full-screen-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-gif {
+  width: 100%;
+  height: auto;  /* Keeps aspect ratio intact */
+  max-height: 100%; /* Ensures it doesn't overflow the section */
+  object-fit: contain; /* Ensures the image scales without being cut off */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .full-screen-section {
+    padding: 0;
+    height: auto; /* Allow height to adjust based on content */
+  }
+
+  .hero-gif {
+    width: 100%;
+    height: auto;
+    max-height: 80vh; /* Adjust max height to ensure the GIF fits well on smaller screens */
+    object-fit: contain; /* Ensures the GIF does not get stretched or cut off */
+  }
+}
+
+</style>
+
+ 
+  <!-- Welcome Section -->
+<section id="expo-welcome" class="full-screen-section">
+  <div class="welcome-text">
+    <h1 id="expo-heading" class="glowing-text big-welcome">WELCOME TO EXYPNOS 2024</h1>
+    <div class="intro-message-container">
+      <p class="intro-message"></p>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- Chairman's Welcome Section -->
+  <section id="chairman-welcome" class="full-screen-section">
+    <h2 class="glowing-text">Welcome Chairman <i class="icon-welcome">👋</i></h2>
+    <div class="chairman-photo">
+      <img src="Chairman-1.jpg" alt="Chairman Photo" class="photo">
+    </div>
+    <p class="chairman-message">We are honored to have you with us for the 2024 EXYPNOS. Your leadership and vision have inspired us all!</p>
+  </section>
+  <br>
+  
+
+  <!-- Speaker Section (Single Speaker) -->
+  
+  <section id="speakers" class="full-screen-section">
+    <h2 class="glowing-text">Our Speaker <i class="icon-welcome">💡</i></h2>
+    <center><img src="heena.png" alt="Mrs. Heena Firdaus" class="speaker-photo"></center>
+    <div class="speaker-item">
+     
+      <h3 class="glowing-text">Mrs. Heena Firdaus</h3>
+      <img src="image_2024-11-18_113307013-removebg-preview.png" alt="Data Science Logo" class="data-science-logo">
+      <div class="icons">
+        <p><i class="fas fa-graduation-cap"></i>  BE CSE
+        </p>
+        <p><i class="fas fa-building"></i> Accenture Technologies Pvt Lmtd</p>
+        <p><i class="fas fa-briefcase"></i>Senior Data Analyst</p>
+        <p><i class="fas fa-database"></i> </p>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- Data Science Quote Section with Typing Effect -->
+  <section id="quote" class="full-screen-section">
+    <h2 class="glowing-text">AI & DS DEPARTMENT PRESENTS <i class="database-icon">📊</i></h2>
+    <div class="quote-text" id="quote-typing-container">
+      <p id="quote-typing" class="glowing-text">"EXYPNOS 2024"
+
+      </p>
+    </div>
+    <div class="quote-gif">
+      <img src="datsss.gif" alt="Data Science GIF">
+    </div>
+  </section>
+ <div>
+  <!-- Surprise Section with Scrolling Animation -->
+  <section id="surprise" class="full-screen-section">
+    <div class="surprise-text">
+      <p class="surprise-content">Wait for More Surprises ❓<br>Stay tuned for more exciting updates!</p>
+    </div>
+  </section>
+</div>
+
+  <!-- Join Our Event Button in Footer -->
+  <footer id="footer">
+    <button id="join-event" class="glowing-text">Join Our Event <i class="database-icon">📅</i></button>
+  </footer>     
+
+  <!-- Horizontal Scroll Section for GIF -->
+  <!-- Button to trigger video -->
+
+
+<!-- Video Section -->
+<section id="horizontal-scroll-section" class="hidden">
+  <div class="scroll-content">
+    <!-- Video Element -->
+    <video 
+      id="scroll-video" 
+      src="LAST PART.mp4" 
+      autoplay 
+      loop 
+      muted 
+      playsinline 
+      class="scroll-video">
+    </video>
+  </div>
+</section>
+
+  
+ 
+  
+  
+  <!-- JavaScript File -->
+  <script>
+    // Typing animation on scroll for the quote section
+    window.addEventListener('scroll', () => {
+      const quoteElement = document.getElementById("quote-typing");
+      const quoteContainer = document.getElementById("quote-typing-container");
+      if (!quoteElement || !quoteContainer) return; // Check for element existence
+  
+      const quotePosition = quoteContainer.getBoundingClientRect().top;
+  
+      // Check if the quote section is visible on the screen
+      if (quotePosition < window.innerHeight && !quoteElement.classList.contains("typewriter")) {
+        quoteElement.classList.add("typewriter");
+      }
+    });
+  
+    document.getElementById('join-event').addEventListener('click', () => {
+  const videoSection = document.getElementById('horizontal-scroll-section');
+  const video = document.getElementById('scroll-video');
+
+  // Show the video section
+  videoSection.classList.remove('hidden');
+
+  // Play the video
+  video.play();
+
+  // Request fullscreen mode
+  if (videoSection.requestFullscreen) {
+    videoSection.requestFullscreen().then(() => {
+      // Lock orientation to portrait (if supported)
+      if (screen.orientation && screen.orientation.lock) {
+        screen.orientation.lock('portrait').catch(console.error);
+      }
+    }).catch(console.error);
+  }
+
+  // For Safari (uses webkit-prefixed fullscreen API)
+  else if (videoSection.webkitRequestFullscreen) {
+    videoSection.webkitRequestFullscreen();
+  }
+});
+
+  
+    // Typing effect for intro message
+    document.addEventListener('scroll', () => {
+      const introMessage = document.querySelector('.intro-message');
+      const container = document.querySelector('.intro-message-container');
+  
+      if (!introMessage || !container) return; // Check for element existence
+  
+      const rect = container.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+  
+      if (isVisible && !introMessage.classList.contains('active')) {
+        introMessage.classList.add('active'); // Prevents re-triggering
+        typeText(introMessage, "Where Data Meets Intelligence...!", 100); // Adjust speed as needed
+      }
+    });
+  
+    // Function to simulate typing
+    function typeText(element, text, speed) {
+      let index = 0;
+      const interval = setInterval(() => {
+        if (index < text.length) {
+          element.textContent += text.charAt(index);
+          index++;
+        } 
+      }, speed);
+    }
+  </script>
+  
+</body>
+</html>
